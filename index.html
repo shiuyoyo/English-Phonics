@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英文自然發音法字卡 | 注音對照</title>
+<meta name="description" content="免費英文自然發音法（Phonics）字卡，完整注音符號對照，包含短母音、長母音、母音組合、子音連綴等70+張字卡。">
+
+  Google AdSense — 將 ca-pub-XXXXXXXXXXXXXXXX 換成你的 Publisher ID
+  申請網址: https://www.google.com/adsense/
+============================================================ -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8259926232293889" crossorigin="anonymous"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --surface2: #f4f3ef;
+    --border: rgba(0,0,0,0.10);
+    --border2: rgba(0,0,0,0.18);
+    --text: #1a1a18;
+    --text2: #5a5a56;
+    --text3: #9a9a94;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --accent: #5DCAA5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121210;
+      --surface: #1e1e1c;
+      --surface2: #2a2a28;
+      --border: rgba(255,255,255,0.10);
+      --border2: rgba(255,255,255,0.20);
+      --text: #f0f0ec;
+      --text2: #a0a09a;
+      --text3: #606060;
+    }
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans TC', 'PingFang TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  header h1 { font-size: 17px; font-weight: 600; }
+  header .subtitle { font-size: 12px; color: var(--text3); margin-top: 1px; }
+
+  .header-actions { display: flex; gap: 8px; }
+
+  .btn {
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border2);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    transition: background 0.15s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .btn:hover { background: var(--surface2); }
+  .btn.primary { background: var(--text); color: var(--bg); border-color: transparent; }
+  .btn.primary:hover { opacity: 0.85; }
+
+  /* ── AdSense Banner Top ── */
+  .ad-banner {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+    padding: 8px;
+  }
+  /* 若尚未申請AdSense，先顯示佔位說明 */
+  .ad-placeholder {
+    width: 100%;
+    max-width: 728px;
+    height: 90px;
+    border: 1px dashed var(--border2);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text3);
+    font-size: 12px;
+  }
+
+  .layout {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 20px;
+  }
+
+  @media (max-width: 680px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+  }
+
+  /* ── Tabs ── */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tab {
+    padding: 6px 13px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text2);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .tab:hover { border-color: var(--border2); }
+  .tab.active { background: var(--text); color: var(--bg); border-color: transparent; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── View toggle ── */
+  .view-toggle { display: flex; gap: 6px; margin-bottom: 16px; }
+  .vtbtn {
+    flex: 1;
+    padding: 7px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text2);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .vtbtn.active { border-color: var(--border2); background: var(--surface2); color: var(--text); }
+
+  /* ── Flashcard ── */
+  .progress { font-size: 13px; color: var(--text3); text-align: center; margin-bottom: 12px; }
+
+  .card-area {
+    perspective: 1200px;
+    height: 220px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+  }
+  .card.flipped { transform: rotateY(180deg); }
+  .face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+  }
+  .front { background: var(--surface); }
+  .back { background: var(--surface2); transform: rotateY(180deg); }
+  .front-top { width: 100%; height: 5px; border-radius: var(--radius) var(--radius) 0 0; }
+  .c-eng { font-size: 60px; font-weight: 600; letter-spacing: 1px; line-height: 1; margin-top: -5px; }
+  .c-cat { font-size: 11px; color: var(--text3); margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
+  .c-hint { font-size: 12px; color: var(--text3); margin-top: 18px; }
+  .c-zhu { font-size: 54px; font-weight: 500; line-height: 1.1; }
+  .c-ex { font-size: 14px; color: var(--text2); margin-top: 10px; }
+  .c-note { font-size: 12px; color: var(--text3); margin-top: 5px; }
+
+  .nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+
+  /* ── Grid view ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
+    gap: 8px;
+  }
+  .grid-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .grid-card:hover { border-color: var(--border2); background: var(--surface2); transform: translateY(-1px); }
+  .grid-eng { font-size: 20px; font-weight: 600; }
+  .grid-zhu { font-size: 15px; color: var(--text2); margin-top: 3px; }
+  .grid-ex { font-size: 10px; color: var(--text3); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* ── Sidebar ── */
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .sidebar-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+  }
+  .sidebar-title { font-size: 12px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .stat { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .stat:last-child { border-bottom: none; }
+  .stat-val { font-weight: 600; }
+
+  /* ── Ad sidebar ── */
+  .ad-sidebar {
+    min-height: 250px;
+    border: 1px dashed var(--border2);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text3);
+    font-size: 11px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--text3);
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+  footer a { color: var(--text2); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ── Print / PDF layout ── */
+  @media print {
+    header, .ad-banner, .sidebar, .tabs, .view-toggle, .nav, .header-actions, footer { display: none !important; }
+    .layout { grid-template-columns: 1fr; padding: 0; max-width: 100%; }
+    #card-view { display: none !important; }
+    #grid-view { display: block !important; }
+    .grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .grid-card { break-inside: avoid; border: 1px solid #ccc; border-radius: 6px; }
+    .print-header { display: block !important; text-align: center; margin-bottom: 16px; }
+    body { background: white; color: black; }
+  }
+  .print-header { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🔤 英文自然發音法字卡</h1>
+    <div class="subtitle">Phonics × 注音對照 — 70+ 張字卡</div>
+  </div>
+  <div class="header-actions">
+    <button class="btn" onclick="exportPDF()">⬇ 匯出 PDF</button>
+    <a class="btn" href="privacy.html">隱私政策</a>
+  </div>
+</header>
+
+<!-- ============================================================
+  頂部廣告 Banner (728×90 Leaderboard)
+  申請通過後，將下方佔位符換成 AdSense 的 <ins> 程式碼
+============================================================ -->
+<div class="ad-banner">
+  <!-- AdSense 程式碼貼這裡 ↓ -->
+  <!--
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+  <div class="ad-placeholder">廣告版位 728×90（AdSense 申請通過後替換）</div>
+</div>
+
+<div class="layout">
+  <main>
+    <div class="print-header">
+      <h2 style="font-size:20px;">英文自然發音法 × 注音對照字卡</h2>
+      <p style="font-size:13px;color:#666;margin-top:4px;">Phonics Zhuyin Reference — 全類別速查表</p>
+    </div>
+
+    <div class="tabs" id="tabs"></div>
+
+    <div class="view-toggle">
+      <button class="vtbtn active" id="btn-card" onclick="setView('card')">字卡模式</button>
+      <button class="vtbtn" id="btn-grid" onclick="setView('grid')">總覽模式</button>
+    </div>
+
+    <div id="card-view">
+      <div class="progress" id="progress"></div>
+      <div class="card-area" onclick="flip()">
+        <div class="card" id="card">
+          <div class="face front">
+            <div class="front-top" id="top-bar"></div>
+            <div class="c-eng" id="c-eng"></div>
+            <div class="c-cat" id="c-cat"></div>
+            <div class="c-hint">點擊翻面查看注音</div>
+          </div>
+          <div class="face back">
+            <div class="c-zhu" id="c-zhu"></div>
+            <div class="c-ex" id="c-ex"></div>
+            <div class="c-note" id="c-note"></div>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <button class="btn" onclick="prev()">← 上一張</button>
+        <button class="btn" onclick="next()">下一張 →</button>
+      </div>
+    </div>
+
+    <div id="grid-view" style="display:none;">
+      <div class="grid" id="grid"></div>
+    </div>
+  </main>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">字卡統計</div>
+      <div id="stats"></div>
+    </div>
+
+    <!-- ============================================================
+      側欄廣告 (250×250 Square)
+      申請通過後換成 AdSense <ins> 程式碼
+    ============================================================ -->
+    <div class="sidebar-card" style="padding:0;overflow:hidden;">
+      <!-- AdSense 程式碼貼這裡 ↓ -->
+      <!--
+      <ins class="adsbygoogle"
+           style="display:block;width:200px;height:200px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <div class="ad-sidebar">廣告版位<br>200×200<br>（AdSense）</div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>© 2025 英文自然發音法字卡 &nbsp;·&nbsp; <a href="privacy.html">隱私政策</a> &nbsp;·&nbsp; 教育用途免費使用</p>
+</footer>
+
+<script>
+const categories = [
+  { id:'short',    label:'短母音',    color:'#1D9E75' },
+  { id:'long',     label:'長母音',    color:'#7F77DD' },
+  { id:'teams',    label:'母音組合',   color:'#D85A30' },
+  { id:'r',        label:'R控制音',   color:'#BA7517' },
+  { id:'digraphs', label:'子音組合',   color:'#378ADD' },
+  { id:'blends',   label:'子音連綴',   color:'#D4537E' },
+];
+
+const data = {
+  short: [
+    {eng:'a', zhu:'ㄝ', ex:'cat / apple', note:'短促的ㄝ音'},
+    {eng:'e', zhu:'ㄝ', ex:'bed / egg',   note:'開口說ㄝ'},
+    {eng:'i', zhu:'ㄧ', ex:'sit / igloo', note:'短促ㄧ音'},
+    {eng:'o', zhu:'ㄛ', ex:'hot / ox',    note:'短促ㄛ音'},
+    {eng:'u', zhu:'ㄚ', ex:'cup / umbrella', note:'輕聲ㄚ音'},
+  ],
+  long: [
+    {eng:'a_e', zhu:'ㄟ',   ex:'cake / ape',  note:'Magic E，e不發音'},
+    {eng:'e_e', zhu:'ㄧ',   ex:'me / eel',    note:'長母音e'},
+    {eng:'i_e', zhu:'ㄞ',   ex:'bike / ice',  note:'Magic E，e不發音'},
+    {eng:'o_e', zhu:'ㄛ',   ex:'go / open',   note:'長母音o'},
+    {eng:'u_e', zhu:'ㄧㄨ', ex:'cute / use',  note:'Magic E，e不發音'},
+  ],
+  teams: [
+    {eng:'ai', zhu:'ㄞ',       ex:'rain / tail',   note:''},
+    {eng:'ay', zhu:'ㄟ',       ex:'day / play',    note:''},
+    {eng:'ee', zhu:'ㄧ',       ex:'tree / feet',   note:''},
+    {eng:'ea', zhu:'ㄧ',       ex:'eat / beach',   note:''},
+    {eng:'oa', zhu:'ㄛ',       ex:'boat / road',   note:''},
+    {eng:'oo', zhu:'ㄨ',       ex:'moon / book',   note:'長短音同符號'},
+    {eng:'ou', zhu:'ㄠ',       ex:'out / cloud',   note:''},
+    {eng:'ow', zhu:'ㄠ / ㄛ',  ex:'cow / snow',    note:'兩種讀音'},
+    {eng:'oi', zhu:'ㄛㄧ',     ex:'oil / coin',    note:''},
+    {eng:'oy', zhu:'ㄛㄧ',     ex:'boy / toy',     note:''},
+    {eng:'au', zhu:'ㄛ',       ex:'autumn / sauce',note:''},
+    {eng:'aw', zhu:'ㄛ',       ex:'saw / draw',    note:''},
+    {eng:'ew', zhu:'ㄧㄨ',     ex:'new / few',     note:''},
+    {eng:'ie', zhu:'ㄞ',       ex:'pie / tie',     note:''},
+    {eng:'ue', zhu:'ㄧㄨ',     ex:'blue / clue',   note:''},
+    {eng:'ui', zhu:'ㄨㄧ',     ex:'fruit / suit',  note:''},
+  ],
+  r: [
+    {eng:'ar', zhu:'ㄚ兒', ex:'car / star',  note:'帶捲舌'},
+    {eng:'er', zhu:'ㄦ',   ex:'her / fern',  note:'中性母音'},
+    {eng:'ir', zhu:'ㄦ',   ex:'bird / girl', note:'同er音'},
+    {eng:'or', zhu:'ㄛ兒', ex:'for / born',  note:'帶捲舌'},
+    {eng:'ur', zhu:'ㄦ',   ex:'fur / burn',  note:'同er音'},
+  ],
+  digraphs: [
+    {eng:'sh',  zhu:'ㄕ',       ex:'ship / fish',      note:''},
+    {eng:'ch',  zhu:'ㄑ',       ex:'chair / cheese',   note:'接近ㄑ'},
+    {eng:'th',  zhu:'舌尖音',   ex:'this / think',     note:'有聲/無聲兩種'},
+    {eng:'wh',  zhu:'ㄏㄨ',     ex:'whale / wheel',    note:''},
+    {eng:'ph',  zhu:'ㄈ',       ex:'phone / photo',    note:'同f音'},
+    {eng:'ng',  zhu:'ㄥ',       ex:'sing / ring',      note:''},
+    {eng:'nk',  zhu:'ㄥㄎ',     ex:'think / pink',     note:''},
+    {eng:'ck',  zhu:'ㄎ',       ex:'duck / back',      note:'同k音'},
+    {eng:'gh',  zhu:'ㄈ/不發音', ex:'laugh / night',   note:'字尾常不發音'},
+    {eng:'kn',  zhu:'ㄋ',       ex:'knee / know',      note:'k不發音'},
+    {eng:'wr',  zhu:'ㄖ',       ex:'write / wrap',     note:'w不發音'},
+    {eng:'dge', zhu:'ㄐ',       ex:'bridge / edge',    note:''},
+    {eng:'tch', zhu:'ㄑ',       ex:'catch / watch',    note:''},
+  ],
+  blends: [
+    {eng:'bl',  zhu:'ㄅㄌ',   ex:'blue / black',    note:''},
+    {eng:'br',  zhu:'ㄅㄖ',   ex:'bread / broom',   note:''},
+    {eng:'cl',  zhu:'ㄎㄌ',   ex:'clap / clock',    note:''},
+    {eng:'cr',  zhu:'ㄎㄖ',   ex:'crab / cry',      note:''},
+    {eng:'dr',  zhu:'ㄉㄖ',   ex:'drum / draw',     note:''},
+    {eng:'fl',  zhu:'ㄈㄌ',   ex:'flag / fly',      note:''},
+    {eng:'fr',  zhu:'ㄈㄖ',   ex:'frog / free',     note:''},
+    {eng:'gl',  zhu:'ㄍㄌ',   ex:'glad / glue',     note:''},
+    {eng:'gr',  zhu:'ㄍㄖ',   ex:'green / grab',    note:''},
+    {eng:'pl',  zhu:'ㄆㄌ',   ex:'play / plant',    note:''},
+    {eng:'pr',  zhu:'ㄆㄖ',   ex:'pray / pride',    note:''},
+    {eng:'sc',  zhu:'ㄙㄎ',   ex:'scale / scar',    note:''},
+    {eng:'sk',  zhu:'ㄙㄎ',   ex:'skip / sky',      note:''},
+    {eng:'sl',  zhu:'ㄙㄌ',   ex:'sleep / slide',   note:''},
+    {eng:'sm',  zhu:'ㄙㄇ',   ex:'smile / small',   note:''},
+    {eng:'sn',  zhu:'ㄙㄋ',   ex:'snake / snow',    note:''},
+    {eng:'sp',  zhu:'ㄙㄆ',   ex:'spin / spell',    note:''},
+    {eng:'st',  zhu:'ㄙㄊ',   ex:'stop / star',     note:''},
+    {eng:'sw',  zhu:'ㄙㄨ',   ex:'swim / sweet',    note:''},
+    {eng:'tr',  zhu:'ㄊㄖ',   ex:'tree / truck',    note:''},
+    {eng:'tw',  zhu:'ㄊㄨ',   ex:'twin / twelve',   note:''},
+    {eng:'str', zhu:'ㄙㄊㄖ', ex:'string / street', note:'三音連綴'},
+    {eng:'spl', zhu:'ㄙㄆㄌ', ex:'splash / split',  note:'三音連綴'},
+    {eng:'spr', zhu:'ㄙㄆㄖ', ex:'spring / spray',  note:'三音連綴'},
+  ],
+};
+
+let currentCat = 'short';
+let currentIdx = 0;
+let isFlipped = false;
+let viewMode = 'card';
+
+const getCat = () => categories.find(c => c.id === currentCat);
+const getCards = () => data[currentCat];
+
+function renderTabs() {
+  document.getElementById('tabs').innerHTML = categories.map(c => {
+    const active = c.id === currentCat ? 'active' : '';
+    return `<button class="tab ${active}" onclick="selectCat('${c.id}')">
+      <span class="dot" style="background:${c.color}"></span>${c.label}
+    </button>`;
+  }).join('');
+}
+
+function renderStats() {
+  const total = Object.values(data).reduce((s,a) => s + a.length, 0);
+  document.getElementById('stats').innerHTML = categories.map(c =>
+    `<div class="stat">
+      <span style="display:flex;align-items:center;gap:5px;">
+        <span class="dot" style="background:${c.color}"></span>${c.label}
+      </span>
+      <span class="stat-val">${data[c.id].length}</span>
+    </div>`
+  ).join('') + `<div class="stat" style="font-weight:600;"><span>合計</span><span class="stat-val">${total}</span></div>`;
+}
+
+function renderCard() {
+  const cards = getCards();
+  const card = cards[currentIdx];
+  const cat = getCat();
+  document.getElementById('c-eng').textContent = card.eng;
+  document.getElementById('c-cat').textContent = cat.label;
+  document.getElementById('c-zhu').textContent = card.zhu;
+  document.getElementById('c-ex').textContent = card.ex;
+  document.getElementById('c-note').textContent = card.note;
+  document.getElementById('progress').textContent = `${currentIdx + 1} / ${cards.length}`;
+  document.getElementById('top-bar').style.background = cat.color;
+  const el = document.getElementById('card');
+  el.classList.remove('flipped');
+  isFlipped = false;
+}
+
+function renderGrid() {
+  const cards = getCards();
+  const cat = getCat();
+  document.getElementById('grid').innerHTML = cards.map((c, i) =>
+    `<div class="grid-card" onclick="selectCard(${i})">
+      <div class="grid-eng" style="color:${cat.color}">${c.eng}</div>
+      <div class="grid-zhu">${c.zhu}</div>
+      <div class="grid-ex">${c.ex.split('/')[0].trim()}</div>
+    </div>`
+  ).join('');
+}
+
+function flip() {
+  const el = document.getElementById('card');
+  isFlipped = !isFlipped;
+  el.classList.toggle('flipped', isFlipped);
+}
+
+function next() {
+  const cards = getCards();
+  if (currentIdx < cards.length - 1) { currentIdx++; renderCard(); }
+}
+
+function prev() {
+  if (currentIdx > 0) { currentIdx--; renderCard(); }
+}
+
+function selectCat(id) {
+  currentCat = id;
+  currentIdx = 0;
+  renderTabs();
+  viewMode === 'card' ? renderCard() : renderGrid();
+}
+
+function selectCard(i) {
+  currentIdx = i;
+  setView('card');
+}
+
+function setView(v) {
+  viewMode = v;
+  document.getElementById('card-view').style.display  = v === 'card' ? '' : 'none';
+  document.getElementById('grid-view').style.display  = v === 'grid' ? '' : 'none';
+  document.getElementById('btn-card').classList.toggle('active', v === 'card');
+  document.getElementById('btn-grid').classList.toggle('active', v === 'grid');
+  v === 'card' ? renderCard() : renderGrid();
+}
+
+// ── PDF 匯出 ──────────────────────────────────────────────
+// 使用瀏覽器列印（最相容注音符號），開啟後按 Ctrl+P → 另存為 PDF
+function exportPDF() {
+  // 切換成總覽 + 顯示所有類別
+  const originalCat = currentCat;
+  const originalView = viewMode;
+
+  // 建立列印視窗
+  const printWin = window.open('', '_blank', 'width=900,height=700');
+  let allCards = '';
+  categories.forEach(cat => {
+    allCards += `<div class="section-title" style="color:${cat.color}">${cat.label}</div>`;
+    allCards += '<div class="grid">';
+    data[cat.id].forEach(c => {
+      allCards += `<div class="card-item">
+        <div class="eng" style="color:${cat.color}">${c.eng}</div>
+        <div class="zhu">${c.zhu}</div>
+        <div class="ex">${c.ex.split('/')[0].trim()}</div>
+      </div>`;
+    });
+    allCards += '</div>';
+  });
+
+  printWin.document.write(`<!DOCTYPE html><html lang="zh-TW"><head>
+<meta charset="UTF-8">
+<title>英文自然發音法字卡 — 注音對照全覽</title>
+<style>
+  body { font-family: 'PingFang TC','Noto Sans TC',sans-serif; padding: 20px; color: #111; }
+  h1 { font-size: 18px; text-align: center; margin-bottom: 4px; }
+  .sub { font-size: 12px; color: #888; text-align: center; margin-bottom: 20px; }
+  .section-title { font-size: 13px; font-weight: 700; margin: 14px 0 8px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 8px; }
+  .card-item { border: 1px solid #ddd; border-radius: 8px; padding: 8px 6px; text-align: center; break-inside: avoid; }
+  .eng { font-size: 20px; font-weight: 700; }
+  .zhu { font-size: 16px; color: #333; margin-top: 2px; }
+  .ex { font-size: 10px; color: #888; margin-top: 2px; }
+  @media print { @page { margin: 15mm; } }
+</style>
+</head><body>
+<h1>英文自然發音法字卡 × 注音符號對照</h1>
+<div class="sub">Phonics Zhuyin Reference — 全類別速查表</div>
+${allCards}
+</body></html>`);
+  printWin.document.close();
+  printWin.onload = () => { printWin.focus(); printWin.print(); };
+}
+
+// ── Init ─────────────────────────────────────────────────
+renderTabs();
+renderStats();
+renderCard();
+</script>
+
+</body>
+</html>
